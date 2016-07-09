@@ -12,8 +12,24 @@ public class Farmacia {
 	private String urlMaps;
 	private String urlWeb;
 	private String coords;
-	
-	
+	private String horario;
+	private String observaciones;
+
+	public String getHorario() {
+		return horario;
+	}
+
+	public void setHorario(String horario) {
+		this.horario = horario;
+	}
+
+	public String getObservaciones() {
+		return observaciones;
+	}
+
+	public void setObservaciones(String observaciones) {
+		this.observaciones = observaciones;
+	}
 
 	public int getId() {
 		return id;

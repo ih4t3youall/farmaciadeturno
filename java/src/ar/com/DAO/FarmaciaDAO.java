@@ -13,13 +13,15 @@ public class FarmaciaDAO extends AbstractDAO {
 	public void save(Farmacia farmacia) throws SQLException{
 		Statement stm = super.con.createStatement();
 		try {
-			String sql= "insert into farmacia (nombre,direccion,telefono,urlMaps,urlWeb,coords) values('"
+			String sql= "insert into farmacia (nombre,direccion,telefono,urlMaps,urlWeb,coords,horario,observaciones) values('"
 					+ ""+farmacia.getNombre()+"',"
 							+ "'"+farmacia.getDireccion()+"',"
 									+ "'"+farmacia.getTelefono()+"',"
 											+ "'"+farmacia.getUrlMaps()+"',"
 													+ "'"+farmacia.getUrlWeb()+"',"
-															+ "'"+farmacia.getCoords()+"')";
+															+ "'"+farmacia.getCoords()+"',"
+																	+ "'"+farmacia.getHorario()+"',"
+																			+ "'"+farmacia.getObservaciones()+"')";
 			
 		stm.executeUpdate(sql);
 		

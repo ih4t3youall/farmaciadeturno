@@ -6,7 +6,6 @@ import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -31,6 +30,8 @@ public class Inicio extends JFrame{
 	private JTextField telefono;
 	private JTextField urlMaps;
 	private JTextField urlWeb;
+	private JTextField horario;
+	private JTextField observaciones;
 	private JTextField coords;
 	private JButton boton;
 	private JComboBox<Tipo> tipo;
@@ -45,9 +46,9 @@ public class Inicio extends JFrame{
 	
 	public Inicio() throws SQLException{
 		
-		this.setSize(new Dimension(203, 380));
+		this.setSize(new Dimension(203, 500));
 		this.setVisible(true);
-		this.setLocation(new Point(400, 400));
+		this.setLocation(new Point(400, 200));
 		
 		tipoDAO = new TipoDAO();
 		
@@ -66,6 +67,8 @@ public class Inicio extends JFrame{
 		urlWeb= new JTextField(15);
 		coords = new JTextField(15);
 		direccion = new JTextField(15);
+		horario = new JTextField(15);
+		observaciones = new JTextField(15);
 		
 		boton=new JButton("agregar");
 		botonAceptar = new JButton("Aceptar");
@@ -97,6 +100,10 @@ public class Inicio extends JFrame{
 		panelDatos.add(urlWeb);
 		panelDatos.add(new JLabel("Coordenadas"));
 		panelDatos.add(coords);
+		panelDatos.add(new JLabel("observaciones"));
+		panelDatos.add(observaciones);
+		panelDatos.add(new JLabel("horario"));
+		panelDatos.add(horario);
 		panelDatos.add(new JLabel("tipo"));
 		panelDatos.add(tipo);
 		panelDatos.add(boton);
@@ -136,7 +143,8 @@ public class Inicio extends JFrame{
 				farmacia.setUrlMaps(urlMaps.getText());
 				farmacia.setUrlWeb(urlWeb.getText());
 				farmacia.setCoords(coords.getText());
-				
+				farmacia.setHorario(horario.getText());
+				farmacia.setObservaciones(observaciones.getText());
 				
 				try {
 					farmDAO.save(farmacia);
@@ -158,6 +166,8 @@ public class Inicio extends JFrame{
 				coords.setText("");
 				telefono.setText("");
 				tipos.clear();
+				horario.setText("");
+				observaciones.setText("");
 				labelTipo.setText("none");
 				
 			}
