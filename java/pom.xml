@@ -1,0 +1,47 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>Farmacia</groupId>
+  <artifactId>Farmacia</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <properties>
+		<springframework.version>4.1.6.RELEASE</springframework.version>
+		<springsecurity.version>4.0.1.RELEASE</springsecurity.version>
+		<hibernate.version>4.3.6.Final</hibernate.version>
+		<mysql.connector.version>5.1.31</mysql.connector.version>
+		<jackson.version>2.6.3</jackson.version>
+	</properties>
+  
+  
+  <dependencies>
+  
+		<!-- Hibernate -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>${mysql.connector.version}</version>
+		</dependency>
+  
+  </dependencies>
+  
+  
+  
+  <build>
+    <sourceDirectory>src</sourceDirectory>
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.5.1</version>
+        <configuration>
+          <source/>
+          <target/>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>
