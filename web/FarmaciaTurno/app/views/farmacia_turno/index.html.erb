@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <title>GMaps.js &mdash; Mapa Basico</title>
-  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
-  <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+
+  
   <script type="text/javascript">
    var map;
    $(document).ready(function(){
@@ -19,11 +19,19 @@
        mapTypeControl: false,
        minZoom: 14
      });
-       var farmaciaMarker = new google.maps.Marker({
-         position: {lat:-34.912501 , lng: -57.948759},
-         map: map,
-         icon:  'http://maps.google.com/mapfiles/ms/icons/green-dot.png'
-       });
+     <% @farmacias.each do |x| %>
+          map.addMarker({
+            lat:<%= x.latitud %>,
+            lng: <%=x.longitud%>,
+            icon : 'assets/farmredGreenNew.png',
+
+            title: '<%= x.nombre %>',
+
+            click: function(e) {
+              swal("<%= x.direccion %>", "You clicked the button!", "success")
+            }
+          });
+          <% end %>
 
      //map.addMarker({
        //lat: -34.912501,
@@ -58,86 +66,3 @@
 </body>
 
    </html>
-
-
-<!DOCTYPE html>
-<html>
-<head>
- <meta charset="utf-8">
- <title>GMaps.js &mdash; Mapa Basico</title>
- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
- <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
- <script type="text/javascript" src="gmaps.js"></script>
- <script type="text/javascript">
-   var map;
-   $(document).ready(function(){
-     map = new GMaps({
-       div: '#map',
-       lat: -34.921178,
-       lng: -57.954629,
-       zoom: 14,
-       draggable: true,
-       zoomControl : false,
-       panControl : false,
-       streetViewControl : false,
-       mapTypeControl: false,
-       minZoom: 14
-     });
-
-
-     map.addMarker({
-       lat: -34.912501,
-       lng: -57.948759,
-       icon : 'assets/farmredGreenNew.png',
-
-       title: 'Farmacia Ojeda',
-
-       click: function(e) {
-         swal("Good job!", "You clicked the button!", "success")
-       }
-     });
-
-     map.addMarker({
-       lat: -34.898674,
-       lng: -57.969716,
-       icon : 'assets/farmRedNew.png',
-
-       title: 'Farmacia Ojeda',
-
-       click: function(e) {
-         swal("Good job!", "You clicked the button!", "success")
-       }
-     });
-
-
-   });
- </script>
- <style>
- body{
- font-family: Helvetica, Arial, sans-serif;
- margin:1em;
-}
-#map{
- display: block;
- width: 94%;
- height: 650px;
- margin: 4em auto;
- -moz-box-shadow: 0px 5px 20px #ccc;
- -webkit-box-shadow: 0px 5px 20px #ccc;
- box-shadow: 0px 5px 20px #ccc;
-}
-
- </style>
-</head>
-<body>
-
-      <a class="btn btn-default"  href="#" role="button">Referencia</a>
-<div id="referencias">
-  <p> Las cruces rojas significan farmacias que no hay de turno.</p>
-  <p> Las cruces verdes significan que la farmacia esta de turno</p>
-
-</div>
-
-     <!--<div id="map"></div>-->
-</body>
-</html>

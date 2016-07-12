@@ -1,11 +1,24 @@
 Rails.application.routes.draw do
-  get 'farmacia_turno/index'
 
+  namespace :api do
+      namespace :v1 do
+        resources :users
+      end
+    end
+
+  get 'farmacia_turno/index'
+  get 'prueba' => 'prueba#index'
   get 'welcome/index'
   get 'hola' => 'welcome#bienvenido'
   get ''=> 'farmacia_turno#index'
+  get 'web' => 'hello_message#wsdl'
+  get 'prueba/index'
+  get 'prueba/new'
+  post 'prueba/create'
 
 root 'welcome#index'
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
