@@ -1,0 +1,2 @@
+module MigradorHelper
+end

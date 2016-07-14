@@ -9,7 +9,7 @@ one:
   telefono: MyString
   urlMaps: MyString
   urlWeb: MyString
-  coordenadas: MyString
+  coords: MyString
   horario: MyString
   observaciones: MyString
 
@@ -22,6 +22,6 @@ two:
   telefono: MyString
   urlMaps: MyString
   urlWeb: MyString
-  coordenadas: MyString
+  coords: MyString
   horario: MyString
   observaciones: MyString

@@ -11,32 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160711234014) do
-
-  create_table "articles", force: :cascade do |t|
-    t.string   "latitud"
-    t.text     "longitud"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+ActiveRecord::Schema.define(version: 20160714213811) do
 
   create_table "farmacia", force: :cascade do |t|
-    t.string  "latitud"
-    t.string  "longitud"
-    t.string  "nombre"
-    t.string  "letra"
-    t.string  "direccion"
-    t.string  "telefono"
-    t.string  "urlMaps"
-    t.string  "urlWeb"
-    t.string  "coords"
-    t.string  "coordenadas"
-    t.string  "horario"
-    t.string  "observaciones"
-    t.integer "farm_id"
+    t.string "latitud"
+    t.string "longitud"
+    t.string "nombre"
+    t.string "letra"
+    t.string "direccion"
+    t.string "telefono"
+    t.string "urlMaps"
+    t.string "urlWeb"
+    t.string "coords"
+    t.string "horario"
+    t.string "observaciones"
   end
-
-  add_index "farmacia", ["farm_id"], name: "index_farmacia_on_farm_id"
 
   create_table "farmacia_tipos", force: :cascade do |t|
     t.integer "id_farmacia"

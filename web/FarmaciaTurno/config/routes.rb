@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :farmacia
   namespace :api do
       namespace :v1 do
         resources :users
@@ -7,16 +8,11 @@ Rails.application.routes.draw do
     end
 
   get 'farmacia_turno/index'
-  get 'prueba' => 'prueba#index'
-  get 'welcome/index'
-  get 'hola' => 'welcome#bienvenido'
-  get ''=> 'farmacia_turno#index'
-  get 'web' => 'hello_message#wsdl'
-  get 'prueba/index'
-  get 'prueba/new'
-  post 'prueba/create'
+  get 'allFarmacias' => 'farmacia#allFarmacias'
+  get 'migrador/migrar'
 
-root 'welcome#index'
+
+root 'farmacia#index'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

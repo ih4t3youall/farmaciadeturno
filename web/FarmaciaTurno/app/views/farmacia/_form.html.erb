@@ -1,0 +1,61 @@
+<%= form_for(@farmacium) do |f| %>
+  <% if @farmacium.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@farmacium.errors.count, "error") %> prohibited this farmacium from being saved:</h2>
+
+      <ul>
+      <% @farmacium.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :latitud %><br>
+    <%= f.text_field :latitud %>
+  </div>
+  <div class="field">
+    <%= f.label :longitud %><br>
+    <%= f.text_field :longitud %>
+  </div>
+  <div class="field">
+    <%= f.label :nombre %><br>
+    <%= f.text_field :nombre %>
+  </div>
+  <div class="field">
+    <%= f.label :letra %><br>
+    <%= f.text_field :letra %>
+  </div>
+  <div class="field">
+    <%= f.label :direccion %><br>
+    <%= f.text_field :direccion %>
+  </div>
+  <div class="field">
+    <%= f.label :telefono %><br>
+    <%= f.text_field :telefono %>
+  </div>
+  <div class="field">
+    <%= f.label :urlMaps %><br>
+    <%= f.text_field :urlMaps %>
+  </div>
+  <div class="field">
+    <%= f.label :urlWeb %><br>
+    <%= f.text_field :urlWeb %>
+  </div>
+  <div class="field">
+    <%= f.label :coords %><br>
+    <%= f.text_field :coords %>
+  </div>
+  <div class="field">
+    <%= f.label :horario %><br>
+    <%= f.text_field :horario %>
+  </div>
+  <div class="field">
+    <%= f.label :observaciones %><br>
+    <%= f.text_field :observaciones %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
