@@ -32,22 +32,16 @@ function getFarmacias(){
        });
      }else{
 
+       
 
 
      }
      });
 
-
-
-
-
-
-
-
   },
     error : function(error){
       console.log("error");
-      alert(error.responseText);
+      alert("Error al cargar las farmacias");
 
     }
   });
@@ -70,7 +64,7 @@ function getFarmacias(){
      });
 
 
-
+getFarmacias();
 
 
 

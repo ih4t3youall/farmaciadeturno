@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   get 'migrador/migrar'
 
 
-root 'farmacia#index'
+  root 'farmacia#index'
 
 
   # The priority is based upon order of creation: first created -> highest priority.
