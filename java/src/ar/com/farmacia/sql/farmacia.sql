@@ -22,14 +22,16 @@ USE `farmacia` ;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `farmacia`.`farmacia` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `nombre` VARCHAR(45) NULL,
-  `direccion` VARCHAR(45) NULL,
-  `telefono` VARCHAR(45) NULL,
-  `urlMaps` VARCHAR(45) NULL,
-  `urlWeb` VARCHAR(45) NULL,
-  `coords` VARCHAR(45) NULL,
-  `horario` VARCHAR(45) NULL,
-  `observaciones` VARCHAR(45) NULL,
+  `nombre` VARCHAR(1500) NULL,
+  `direccion` VARCHAR(1500) NULL,
+  `telefono` VARCHAR(1500) NULL,
+  `urlMaps` VARCHAR(1500) NULL,
+  `urlWeb` VARCHAR(1500) NULL,
+  `coords` VARCHAR(1500) NULL,
+  `latitud` VARCHAR(1500) NULL,
+  `longitud` VARCHAR (1500) NULL,
+  `horario` VARCHAR(1500) NULL,
+  `observaciones` VARCHAR(1500) NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 

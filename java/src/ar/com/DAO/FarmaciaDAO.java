@@ -3,6 +3,7 @@ package ar.com.DAO;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.StringTokenizer;
 
 import ar.com.domain.Farmacia;
 import ar.com.domain.Tipo;
@@ -12,16 +13,23 @@ public class FarmaciaDAO extends AbstractDAO {
 	
 	public void save(Farmacia farmacia) throws SQLException{
 		Statement stm = super.con.createStatement();
+		
+		StringTokenizer st = new StringTokenizer(farmacia.getCoords(), ",");
+		
 		try {
-			String sql= "insert into farmacia (nombre,direccion,telefono,urlMaps,urlWeb,coords,horario,observaciones) values('"
+			String sql= "insert into farmacia (nombre,direccion,telefono,urlMaps,urlWeb,coords,latitud,longitud,horario,observaciones) values('"
 					+ ""+farmacia.getNombre()+"',"
 							+ "'"+farmacia.getDireccion()+"',"
 									+ "'"+farmacia.getTelefono()+"',"
 											+ "'"+farmacia.getUrlMaps()+"',"
 													+ "'"+farmacia.getUrlWeb()+"',"
 															+ "'"+farmacia.getCoords()+"',"
+																	+ "'"+st.nextToken()+"',"
+																			+"'"+st.nextToken()+"',"
 																	+ "'"+farmacia.getHorario()+"',"
 																			+ "'"+farmacia.getObservaciones()+"')";
+																					
+																							
 			
 		stm.executeUpdate(sql);
 		
