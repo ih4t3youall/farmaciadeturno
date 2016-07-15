@@ -6,21 +6,29 @@
   <script type="text/javascript" src="//maps.google.com/maps/api/js?sensor=true"></script>
 
 
-  <script type="text/javascript">
 
-function CreateRoute(){
+  <script type="text/javascript">
+var map;
+var latitudActual;
+var longitudActual;
+
+function createRoute(latitud,longitud){
+  map.cleanRoute();
   map.drawRoute({
-  origin: [-34.8959726, -57.956597],
-  destination: [-34.896834, -57.964816],
-  travelMode: 'driving',
-  strokeColor: '#131540',
-  strokeOpacity: 0.6,
-  strokeWeight: 6
-});
+    origin: [latitudActual, longitudActual],
+    destination: [latitud, longitud],
+    travelMode: 'walking',
+    strokeColor: '#131540',
+    strokeOpacity: 0.6,
+    strokeWeight: 6
+  });
 }
+
 function getUbicacion(){
   GMaps.geolocate({
   success: function(position) {
+    latitudActual = position.coords.latitude;
+    longitudActual = position.coords.longitude;
     map.setCenter(position.coords.latitude, position.coords.longitude);
     map.addMarker({
       lat: position.coords.latitude,
@@ -35,9 +43,7 @@ function getUbicacion(){
   not_supported: function() {
     alert("Your browser does not support geolocation");
   },
-  //always: function() {
-    //alert("Done!");
-  //}
+
 });
 }
 function getFarmacias(){
@@ -60,14 +66,28 @@ function getFarmacias(){
          icon : 'assets/farmredGreenNew.png',
          title: farmacia.nombre,
          click: function(e) {
-           swal("direccion", farmacia.direccion+, "success")
+
+          swal({
+              title: "farmcia",
+              text: "You will not be able to recover this imaginary file!",
+              type: "success",
+              showCancelButton: true,
+              confirmButtonColor: "green",
+              confirmButtonText: "Ir",
+              cancelButtonText: "Volver",
+              closeOnConfirm: true,
+              closeOnCancel: true
+            },
+            function(isConfirm){
+              if (isConfirm) {
+                createRoute(farmacia.latitud,farmacia.longitud)
+              }
+            });
+
 
          }
        });
      }else{
-
-
-
 
      }
      });
@@ -83,7 +103,7 @@ function getFarmacias(){
 }
 
 
-   var map;
+
    $(document).ready(function(){
      map = new GMaps({
        div: '#map',
@@ -97,14 +117,8 @@ function getFarmacias(){
        minZoom: 14
      });
 
-
 getFarmacias();
 getUbicacion();
-
-
-
-
-
 
    });
  </script>
@@ -126,7 +140,6 @@ getUbicacion();
  </style>
 </head>
 <body>
-
 
 
 
