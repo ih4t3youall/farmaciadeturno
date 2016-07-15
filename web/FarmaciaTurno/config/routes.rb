@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get 'farmacia_turno/index'
   get 'allFarmacias' => 'farmacia#allFarmacias'
   get 'migrador/migrar'
+  get 'mapa' => 'prueba#martin'
 
 
   root 'farmacia#index'

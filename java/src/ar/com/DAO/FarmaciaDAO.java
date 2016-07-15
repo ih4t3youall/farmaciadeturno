@@ -25,9 +25,9 @@ public class FarmaciaDAO extends AbstractDAO {
 													+ "'"+farmacia.getUrlWeb()+"',"
 															+ "'"+farmacia.getCoords()+"',"
 																	+ "'"+st.nextToken()+"',"
-																			+"'"+st.nextToken()+"',"
-																	+ "'"+farmacia.getHorario()+"',"
-																			+ "'"+farmacia.getObservaciones()+"')";
+																		+"'"+st.nextToken()+"',"
+																			+ "'"+farmacia.getHorario()+"',"
+																				+ "'"+farmacia.getObservaciones()+"')";
 																					
 																							
 			
