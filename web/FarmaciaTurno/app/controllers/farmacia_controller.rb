@@ -75,6 +75,13 @@ class FarmaciaController < ApplicationController
 
   end
 
+  def migrar
+    @parametro = params.require(:farma).permit(:direccion, :nombre, :tipo, :telefono,:latitud,:longitud,:horarios,:observaciones)
+
+
+
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_farmacium

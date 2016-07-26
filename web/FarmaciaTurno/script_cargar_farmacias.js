@@ -11,7 +11,7 @@ $(tr).each(function (index,item){
     farmacia.tipo = $(td[2]).html();
     farmacia.telefono = $(td[3]).html();
 
-    farmacia.urlMaps = $(td[4]).html();
+    //farmacia.urlMaps = $(td[4]).html();
     var td6 = $(td[6]).html();
     var coords = td6.split(",");
     farmacia.latitud = coords[0];
@@ -27,5 +27,25 @@ $(tr).each(function (index,item){
 
 
 });
+var url = "http://localhost:3000/migrar"
+var farma = JSON.stringify(farmacias[3]);
+$.ajax({
+  type: "GET",
+  url: url,
+  //dataType: 'json',
+   dataType : 'html',
+  data: { 'farma' : farma} ,
 
-console.log(farmacias[3]);
+
+        success: function(data){
+
+          console.log(data);
+
+
+        },
+        error : function(data){
+
+                console.log(data);
+
+        }
+  });
