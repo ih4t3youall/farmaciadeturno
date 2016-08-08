@@ -76,9 +76,14 @@ class FarmaciaController < ApplicationController
   end
 
   def migrar
-    @parametro = params.require(:farma).permit(:direccion, :nombre, :tipo, :telefono,:latitud,:longitud,:horarios,:observaciones)
+    @parametro = params.require(:farma).permit(:direccion, :nombre)
+
+    respond_to do |format|
+      format.json { render :json => @parametro, :status => 200}
+      format.json {render :json => true}
 
 
+    end
 
   end
 
