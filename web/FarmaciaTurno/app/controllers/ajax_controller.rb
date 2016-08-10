@@ -10,8 +10,9 @@ end
 
 
 def devolver
-  @score = Score.all
-  @josefo ="miriamo"
+
+  @josefo =get_post_parameters
+
   respond_to do |format|
      format.html
      format.json { render json: @josefo }
@@ -19,21 +20,10 @@ def devolver
 end
 
 
+private
+def get_post_parameters
+  params.permit( :nombre, :apellido)
 end
 
-$.ajax({
 
-    url:"devolver",
-  dataType:"json",
-  success:function(data){
-
-  console.log(data);
-  },
-  error : function(data){
-
-  console.log(data);
-  }
-
-
-
-});
+end

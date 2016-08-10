@@ -11,8 +11,10 @@ Rails.application.routes.draw do
   get 'allFarmacias' => 'farmacia#allFarmacias'
   get 'migrador/migrar'
   get 'mapa' => 'prueba#martin'
-  get 'migrar' => 'farmacia#migrar'
+  get 'devolver' => 'ajax#devolver'
   post   'migrar' => 'farmacia#migrar'
+  get 'nose'=> 'ajax#index'
+
 
 
   root 'farmacia#index'
