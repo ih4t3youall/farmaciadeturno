@@ -1,4 +1,3 @@
-
 var farmacias = new Array();
 
 $("tr").each(function(index,item){
@@ -10,7 +9,7 @@ $("tr").each(function(index,item){
     farmacia.nombre =$(td[1]).html();
     farmacia.letra =$(td[2]).html();
     farmacia.telefono =$(td[3]).html();
-    farmacia.urlMaps =$(td[4]).html();
+    farmacia.urlMaps =$(td[4]).find("a").html();
     farmacia.urlWeb =$(td[5]).html();
     var coordenadas = $(td[6]).html();
     var arr = coordenadas.split(',');
@@ -27,7 +26,7 @@ $("tr").each(function(index,item){
 
 
 });
-
+/*
 $(farmacias).each(function(index,farmacia){
   console.log(index);
  console.log(farmacia.direccion);
@@ -41,19 +40,28 @@ console.log(farmacia.longitud);
 console.log(farmacia.horario);
 console.log(farmacia.observaciones);
 
-});
 
-var farmacia= new Object();
-farmacia.nombre = "unNombre";
-farmacia.apellido="unApellido";
+});*/
+
+var farmacia = farmacias[0];
+$(farmacias).each(function(index,farmacia){
 $.ajax({
 
     url:"devolver",
   dataType:"json",
   data:farmacia,
   success:function(data){
+console.log(data.direccion);
+console.log(data.nombre);
+console.log(data.letra);
+console.log(data.telefono);
+console.log(data.urlMaps);
+console.log(data.urlWeb);
+console.log(data.latitud);
+console.log(data.longitud);
+console.log(data.horario);
+console.log(data.observaciones);
 
-  console.log(data);
   },
   error : function(data){
 
@@ -62,4 +70,5 @@ $.ajax({
 
 
 
+});
 });

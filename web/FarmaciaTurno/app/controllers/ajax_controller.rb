@@ -11,8 +11,10 @@ end
 
 def devolver
 
-  @josefo =get_post_parameters
+  @josefo="200Ok"
 
+  @farmacium = Farmacium.new(get_post_parameters)
+  @farmacium.save
   respond_to do |format|
      format.html
      format.json { render json: @josefo }
@@ -22,7 +24,7 @@ end
 
 private
 def get_post_parameters
-  params.permit( :nombre, :apellido)
+  params.permit( :nombre, :direccion, :letra, :telefono, :urlMaps, :urlWeb, :latitud, :longitud, :horario, :observaciones)
 end
 
 
