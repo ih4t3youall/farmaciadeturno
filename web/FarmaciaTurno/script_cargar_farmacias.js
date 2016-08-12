@@ -8,7 +8,12 @@ $("tr").each(function(index,item){
     farmacia.direccion =$(td[0]).html();
     farmacia.nombre =$(td[1]).html();
     farmacia.letra =$(td[2]).html();
-    farmacia.telefono =$(td[3]).html();
+    farmacia.telefono =$(td[3]).find("div").html();
+      if(farmacia.telefono == null){
+            farmacia.telefono =$(td[3]).html();
+      }
+
+
     farmacia.urlMaps =$(td[4]).find("a").html();
     farmacia.urlWeb =$(td[5]).html();
     var coordenadas = $(td[6]).html();
@@ -42,6 +47,11 @@ console.log(farmacia.observaciones);
 
 
 });*/
+
+console.log(farmacias[15].telefono);
+
+console.log(farmacias[146].telefono);
+
 
 var farmacia = farmacias[0];
 $(farmacias).each(function(index,farmacia){
