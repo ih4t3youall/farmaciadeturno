@@ -4,7 +4,7 @@ class FarmaciaController < ApplicationController
   # GET /farmacia
   # GET /farmacia.json
   def index
-    @farmacia = Farmacium.all
+    @farmacias = Farmacium.all
   end
 
   # GET /farmacia/1
@@ -64,9 +64,21 @@ class FarmaciaController < ApplicationController
   def allFarmacias
 
     @user = Farmacium.all
+    @variable = Array.new
+
+    @user.each do |farmacia|
+
+        if farmacia.letra.match("I")
+          farmacia.deTurno = "assets/farmredGreenNew.png"
+        else
+          farmacia.deTurno ="assets/farmRedNew.png"
+        end
+        @variable.push(farmacia)
+
+    end
 
     respond_to do |format|
-      format.json { render :json => @user, :status => 200}
+      format.json { render :json => @variable, :status => 200}
       format.json {render :json => true}
 
 

@@ -57,19 +57,23 @@ function getFarmacias(){
      //var farmacia = data[0];
 
      $(data).each(function(index,farmacia){
+       console.log("asdasd");
+       console.log(farmacia.deTurno);
+       console.log("asdasd");
        console.log(index);
        console.log(farmacia.latitud);
         if(farmacia.latitud != null){
+
        map.addMarker({
          lat: farmacia.latitud,
          lng: farmacia.longitud,
-         icon : 'assets/farmredGreenNew.png',
+         icon : farmacia.deTurno,
          title: farmacia.nombre,
          click: function(e) {
 
           swal({
               title: farmacia.nombre,
-              text: "Direccion: "+farmacia.direccion+" Telefono:"+farmacia.telefono+" Horario:"+farmacia.horario+" Observaciones: "+farmacia.obeservaciones,
+              text: "Direccion: "+farmacia.direccion+" Telefono:"+farmacia.telefono+" Horario:"+farmacia.horario+" Observaciones: "+farmacia.obeservaciones+" Letra: "+farmacia.letra,
               type: "success",
               showCancelButton: true,
               confirmButtonColor: "green",
@@ -87,6 +91,8 @@ function getFarmacias(){
 
          }
        });
+
+
      }else{
 
      }

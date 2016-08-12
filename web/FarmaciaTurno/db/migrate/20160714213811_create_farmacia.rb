@@ -12,6 +12,7 @@ class CreateFarmacia < ActiveRecord::Migration
       t.string :coords
       t.string :horario
       t.string :observaciones
+      t.string :deTurno
     end
   end
 end

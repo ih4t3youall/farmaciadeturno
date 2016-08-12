@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20160714213811) do
     t.string "coords"
     t.string "horario"
     t.string "observaciones"
+    t.string "deTurno"
   end
 
   create_table "farmacia_tipos", force: :cascade do |t|
